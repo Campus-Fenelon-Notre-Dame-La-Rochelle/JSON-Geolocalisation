@@ -32,7 +32,7 @@ var baseMaps = {
 
 // Ajout d'une icône personnalisée
 var parkingIcon = L.icon({
-    iconUrl: 'pp.png',
+    iconUrl: 'https://thenounproject.com/icon/car-550583/',
     //shadowUrl: 'iconeParkingombre.png',
 
     iconSize:     [38, 95], // size of the icon
@@ -50,7 +50,7 @@ datas.forEach(
         let obs = data.fields.obs;
         let longitude = data.fields.geo_point_2d[1];
         let latitude = data.fields.geo_point_2d[0];
-        var marker = L.marker([longitude,latitude]).addTo(map);
+        var marker = L.marker([longitude,latitude], [icon = parkingIcon]).addTo(map);
         marker.bindPopup("<br>"+adresse+"</br> \n "+obs).openPopup();
         parking.addLayer(marker);
     }
