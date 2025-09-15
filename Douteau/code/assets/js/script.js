@@ -11,16 +11,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     }).addTo(map);
 
 //Parcours du tableau et affichage des points sur la carte
-datas.forEach(
+datasHandicapes.forEach(
         (data)=>{
-                /*//id
-                console.log(`Voici l'élément n° ${data.fields.id}` );
-                //adresse
-                console.log(`Voici son adresse ${data.fields.adresse}`);
-                //coordonées
-                console.log(`Voici ces coordonnées : latitude : ${data.fields.geo_point_2d[1]} , longitude : ${data.fields.geo_point_2d[0]}`);
-                console.log('-------------------------');*/
-
                 //Marker
                 var marker = L.marker([data.fields.geo_point_2d[1], data.fields.geo_point_2d[0]]).addTo(map);
                 

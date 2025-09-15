@@ -1,5 +1,5 @@
 //Définition du tableau de données
-let datas = [
+let datasHandicapes = [
     {
       "fields": {
         "obs": "n\u00b0 151 r\u00e9sidence Eloise",
