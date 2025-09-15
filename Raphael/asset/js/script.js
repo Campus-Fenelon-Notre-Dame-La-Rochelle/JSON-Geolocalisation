@@ -9,7 +9,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">marchés couverts Paris</a>'
 }).addTo(map);
 
-
 datas.forEach(data => {
 
     //placement des curseurs aux données de géolocalisation des marchés
