@@ -20,3 +20,11 @@ datasHandicapes.forEach(
                 marker.bindPopup(`<b>Adresse : ${data.fields.adresse}.</b><br/><b>Observation : ${data.fields.obs}</b>`)
         }
 );
+
+datasWC.forEach(
+        (data)=>{
+                var marker = L.marker([data.fields.geojson.coordinates[1], data.fields.geojson[0]]).addTo(map);
+
+                marker.bindPopup(`<b>Emplacement : ${data.fields.emplacement}.</b><br/><b>Horaires : ${data.fields.horaires}.</b><br/><b>Surveillance : ${data.fields.surveillance}.</b>`);
+        }
+);
