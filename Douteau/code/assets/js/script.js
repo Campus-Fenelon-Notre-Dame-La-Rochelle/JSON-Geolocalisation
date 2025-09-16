@@ -7,6 +7,7 @@ var map = L.map('map').setView([46.160329, -1.151139], 13);
 //Configuration de la carte
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
+        layers : [placeHandicapes, wc],
         attribution: 'BTS SIO SLAM2 2025-2026'
     }).addTo(map);
 
