@@ -1,3 +1,60 @@
-#map { height: 580px;
-         width: 100%; }
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Corps de la page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F5F5F5; /* Gris clair */
+    color: #333333; /* Texte */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Titre principal */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #003A83; /* Bleu La Poste */
+    font-size: 2.2em;
+}
+
+/* Carte Leaflet */
+#map {
+    width: 100%;
+    height: 80vh;
+    border: 3px solid #FFD500; /* Jaune La Poste */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Popup Leaflet */
+.leaflet-popup-content {
+    font-size: 1em;
+    color: #003A83; /* Bleu La Poste */
+}
+
+/* Lien dans les popups */
+.leaflet-popup-content a {
+    color: #FFD500; /* Jaune La Poste */
+    text-decoration: none;
+    font-weight: bold;
+}
+.leaflet-popup-content a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    #map {
+        height: 70vh;
+    }
+}
