@@ -11,20 +11,15 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'BTS SIO SLAM2 2025-2026'
     }).addTo(map);
 
-
-var parkingIcon = L.icon({
-        iconUrl: '../images/parking.png',
-
-        iconSize: [38,95]
-});
 //Parcours du tableau et affichage des points sur la carte
 var placeHandicapes = L.layerGroup([]);
 datasHandicapes.forEach(
         (parking)=>{
                 //Marker
-                var marker = L.marker([parking.fields.geo_point_2d[1], parking.fields.geo_point_2d[0]], {icon: parkingIcon}).addTo(map);
+                var marker = L.marker([parking.fields.geo_point_2d[1], parking.fields.geo_point_2d[0]]).addTo(map);
                 //Popup 
                 marker.bindPopup(`<b>Adresse : ${parking.fields.adresse}.</b><br/><b>Observation : ${parking.fields.obs}</b>`);
+                //Placement des markers dans un layer pour pouvoir les affichés ou non suivant lechoix de l'utilisateur
                 placeHandicapes.addLayer(marker);
         }
 );
@@ -34,13 +29,16 @@ datasWC.forEach(
         (data)=>{
                 var marker = L.marker([data.fields.geo_point_2d[1], data.fields.geo_point_2d[0]]).addTo(map);
                 marker.bindPopup(`<b>Emplacement : ${data.fields.emplacement}.</b><br/><b>Horaires : ${data.fields.horaires}.</b><br/><b>Surveillance : ${data.fields.surveillance}.</b>`);
+                //Placement des markers dans un layer pour pouvoir les affichés ou non suivant lechoix de l'utilisateur
                 wc.addLayer(marker);
         }
 );
 
+//création d'un overlay pour les différents layers
 var overlayMaps = {
         "Parking handicapés": placeHandicapes,
-        "Toilettes public": wc
+        "Toilettes publiques": wc
     };
 
+//affichage du paneau de contrôle des layers
 var layerControl = L.control.layers(null, overlayMaps).addTo(map);
