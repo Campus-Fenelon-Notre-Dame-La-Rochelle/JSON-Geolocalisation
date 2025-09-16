@@ -11,12 +11,18 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'BTS SIO SLAM2 2025-2026'
     }).addTo(map);
 
+
+var parkingIcon = L.icon({
+        iconUrl: '../images/parking.png',
+
+        iconSize: [38,95]
+});
 //Parcours du tableau et affichage des points sur la carte
 var placeHandicapes = L.layerGroup([]);
 datasHandicapes.forEach(
         (parking)=>{
                 //Marker
-                var marker = L.marker([parking.fields.geo_point_2d[1], parking.fields.geo_point_2d[0]]).addTo(map);
+                var marker = L.marker([parking.fields.geo_point_2d[1], parking.fields.geo_point_2d[0]], {icon: parkingIcon}).addTo(map);
                 //Popup 
                 marker.bindPopup(`<b>Adresse : ${parking.fields.adresse}.</b><br/><b>Observation : ${parking.fields.obs}</b>`);
                 placeHandicapes.addLayer(marker);
